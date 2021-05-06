@@ -2,7 +2,7 @@
   "name": "Sitecore Edit Assitant",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "Enables Content Authors to navigate from Website(Content Delivery) straight to the associated content in the backend(Content Management) seamlessly",
+  "description": "Enables Content Authors to navigate from Website(CD) straight to associated content in Sitecore(CM) seamlessly",
   "icons": {
     "128": "images/pencil-large.png",
     "48": "images/pencil-small.png"
@@ -11,7 +11,7 @@
     "page": "background.html",
     "persistent": false
   },
-  "permissions": ["activeTab", "tabs", "storage", "downloads", "notifications", "declarativeContent", "contextMenus", "cookies", "http://*/*", "https://*/*"],
+  "permissions": ["contextMenus", "storage", "notifications", "http://*/*", "https://*/*"],
   "options_ui": {
     "page": "options/options.html",
     "chrome_style": false
