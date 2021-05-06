@@ -48,6 +48,7 @@ body {
 }
 .info{
   font-size: 0.9em;
+  width: 80%;
 }
 body::-webkit-scrollbar {
   width: 8px;
