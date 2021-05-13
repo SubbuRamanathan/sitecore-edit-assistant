@@ -16,8 +16,14 @@
       <p class="abstract">This Extension enables the content authors to open associated content in Sitecore(Content Management) straight from Website(Content Delivery)</p>
       <p class="content"><b>To launch associated Experience Editor, Content Editor or Horizon links</b>, you must right-click on the intended website page and select 'Sitecore Edit Assistant' to choose your preferred editing option as shown below. You will be asked to provide the authoring/CM host url, which will be stored in your local browser storage for subsequent requests. </p>
       <img src="../../images/edit-options.png" alt="Sitecore Edit Assistant Edit Options" class="full-width"/>
-      <p class="content"><b>For Multi-site implementation</b>, if the site is not auto-resolving as expected, then you need to right-click and select the 'Additional Settings' option to mention the associated site's name as specified in your site config.  Alternatively, you can preview a page item from Sitecore Content Editor and obtain the site name from 'sc_site' querystring as shown below,</p>
+      <p class="content"><b><span class="danger">IMPORTANT: </span>For Multi-site implementation</b>, you may experience the below issues if the site is not auto-resolving as expected,</p>
+      <ul>
+        <li>'Edit in Content Editor' might redirect to Sitecore login page again even if user is already authenticated.</li>
+        <li>'Edit in Experience Editor' might redirect to 404 Page Not Found Error.</li>
+      </ul>
+      <p class="content">To mitigate this issue, you need to right-click and select the 'Additional Settings (Multi-Site)' option to mention the associated site's name as specified in your site config(if non-SXA site) or <i>/sitecore/content/&lt;tenant&gt;/&lt;site&gt;/Settings/Site Grouping/&lt;site&gt;</i> item(if SXA site).  Alternatively, if you do not have access to site configuration, you can preview a page item from Sitecore Content Editor and obtain the site name from 'sc_site' querystring as shown below,</p>
       <img src="../../images/sc_site-querystring.png" alt="Sitecore Edit Assistant sc_site " class="full-width"/>
+      <p class="content"><b>NOTE: </b>'Edit in Content Editor' can find the associated item only when you are logged in to Sitecore. It might redirect you to Sitecore login page in case if you're not logged in and you may want to try 'Edit in Content Editor' button again after logging in.</p>
       <p class="content">This extension also includes few shortcuts to accelerate the authoring process,</p>
       <ul>
         <li>Ctrl+Shift+X - Edit In Experience Editor</li>

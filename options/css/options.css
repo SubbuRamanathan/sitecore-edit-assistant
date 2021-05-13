@@ -46,6 +46,9 @@ body {
   font-size: 1.2em;
   padding: 10px 0px;
 }
+.danger{
+  color: #ee3524;
+}
 .info{
   font-size: 0.9em;
   width: 80%;

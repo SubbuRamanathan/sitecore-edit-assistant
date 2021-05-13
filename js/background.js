@@ -25,7 +25,6 @@ const updateExtension = async (tab, changeInfo) => {
     var isUrl = tabUrl.origin.startsWith("http");
     var isSitecore = tabUrl.pathname.includes("/sitecore/") || tabUrl.search.includes("sc_mode");
 
-    chrome.contextMenus.removeAll();
     chrome.browserAction.setBadgeBackgroundColor({ color: "#ffffff" });
     chrome.browserAction.setBadgeText({ text: "" });
 

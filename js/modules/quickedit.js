@@ -18,7 +18,8 @@ const showContextMenu = () => {
     createContextMenu('previewInSimulator', '🖥️ Preview in Simulator');
     createContextMenu('openInPreview', '🗔  Open in Preview Mode');
     createContextMenu('settings', '⚙️ Configure Authoring Url');
-    createContextMenu('additionalSettings', '🔧 Additional Settings');
+    createContextMenu('additionalSettings', '🔧 Additional Settings (Multi-Site)');
+    createContextMenu('instructions', '📄  Instructions');
 }
 
 const createContextMenu = (id, text) => {
@@ -41,6 +42,10 @@ const contextMenuClickHandler = async (info, tabInfo) => {
 
 const launchEditUrl = async (action, tabInfo) => {
     if (tabInfo) {
+        if(action.indexOf('instructions') != -1){
+            chrome.runtime.openOptionsPage();
+            return;
+        }
         var cdUrl = new URL(tabInfo.url);
         chrome.storage.sync.get([cdUrl.origin], async (storage) => {
             var siteInfo = Object.values(storage)[0];
@@ -89,6 +94,7 @@ const launchEditUrl = async (action, tabInfo) => {
                         break;
                     case "additionalSettings":
                         getSiteName(cdUrl.origin, siteInfo);
+                        localStorage.removeItem(tabInfo.id);
                         break;
                 }
                 if(editUrl != ''){
